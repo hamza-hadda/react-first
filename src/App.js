@@ -1,24 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
+import ProductContextProvider from './contexts/ProductContext';
+import ProductList from './products/ProductList';
+import WordList from './words/WordList';
+import WordContextProvider, { BuzzWordsContext } from './contexts/BuzzWordsContext';
+import NavBar from './StaticComponents/NavBar';
+import SentimentContextProvider from './contexts/SentimentContext';
+import SentimentList from './sentiments/SentimentList';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" className= "container">
+    <div>
+    <NavBar></NavBar>
+    </div>
+    <div>
+    <SentimentContextProvider>
+      <SentimentList/>
+    </SentimentContextProvider>
+    </div>
+      <div className="row">
+        <div className="col-md">
+        <ProductContextProvider>
+        <ProductList />
+      </ProductContextProvider>
+        </div>
+      <div className="col-md">
+      <WordContextProvider>
+      <WordList></WordList>
+    </WordContextProvider>
+      </div>
+      </div>
     </div>
   );
 }
