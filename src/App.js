@@ -19,6 +19,7 @@ function App() {
       <SentimentList/>
     </SentimentContextProvider>
     </div>
+    <h1> The Products </h1>
       <div className="row">
         <div className="col-md">
         <ProductContextProvider>

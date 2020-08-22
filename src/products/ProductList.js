@@ -7,6 +7,7 @@ const ProductList = () => {
   const { products } = useContext(ProductContext);
   return products.length ? (
     <div className="container">
+        <title> The Products </title>
       <div className="row d-flex flex-wrap align-items-stretch bg-light">
         {products.map(product => {
           return ( <ProductDetails product={product} key={product.id} /> );
